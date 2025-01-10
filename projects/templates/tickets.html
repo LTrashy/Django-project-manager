@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container py-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form  method="post" class="card card-body">
+                <h4>Crear Ticket sobre la Historia de usuario {{userStory.nombre}}</h4>
+                {{error}}
+                {% csrf_token%}
+                <label for="" class="form-label">Ingresa el nombre</label>
+                <input type="text" name="nombre" class="form-control">
+
+                <label for="" class="form-label">Ingresa una descripcion</label>
+                <textarea name="descripcion" class="form-control" id="" rows="8"></textarea>
+
+
+                <label for="">Selecciona estado del Ticket</label>
+                <select name="estado" id="" class="form-select mb-3">
+
+                    <option value="1">Activo</option>
+                    <option value="2">En Proceso</option>
+                    <option value="3">Finalizado</option>
+                </select>
+
+                <button class="btn btn-success">Crear Ticket</button>
+            </form>
+        </div>
+
+    </div>
+</main>
+
+
+
+
+{% endblock %}

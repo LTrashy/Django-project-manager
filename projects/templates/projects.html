@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Projects</h1>
+            {{error}}
+            <ul class="list-group">
+                {%for project in projects%}
+                
+                <a class="list-group-item" href="{% url 'projectid' project.nombre%}">{{project.nombre}}</a>
+                
+                {%endfor%}
+            </ul>
+        </div>
+    </div>
+</main>
+
+
+
+
+        
+ 
+
+{% endblock %}
