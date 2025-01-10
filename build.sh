@@ -11,5 +11,8 @@ python manage.py collectstatic --no-input
 # Apply any outstanding database migrations
 python manage.py migrate
 
-#seed
-python manage.py seed companies --number=10
+# super
+if [[ $CREATE_SUPERUSER ]];
+then
+  python manage.py createsuperuser --no-input
+fi
