@@ -11,6 +11,10 @@
         <a class="list-group-item" href="{% url 'projectid' project.id%}"
           >{{project.nombre}}</a
         >
+        {% empty %}
+        <li class="list-group-item" colspan="4">
+          No hay proyectos disponibles.
+        </li>
 
         {%endfor%}
       </ul>
