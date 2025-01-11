@@ -14,18 +14,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a href="{% url 'projects' %}" class="nav-link"
-            >Proyectos</a
-          >
+          <a href="{% url 'projects' %}" class="nav-link">Proyectos</a>
         </li>
         <!-- <li class="nav-item">
           <a href="" class="nav-link">Crear Historia de usuario</a>
         </li> -->
         <li class="nav-item">
-          <a href="{% url 'historyTickets' %}" class="nav-link">Historial de tickets</a>
+          <a href="{% url 'historyTickets' %}" class="nav-link"
+            >Historial de Tickets</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>

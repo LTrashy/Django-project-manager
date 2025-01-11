@@ -1,38 +1,43 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <main class="container">
+  <div class="row align-items-start">
+    <div class="col">
+      <h1>Historias de usuario</h1>
+      {{error}}
+      <ul class="list-group">
+        {%for userStory in userStories%}
 
-    <div class="row align-items-start">
-        <div class="col">
-            <h1>Historias de usuario</h1>
-            {{error}}
-            <ul class="list-group">
-                {%for userStory in userStories%}
-                
-                <a class="list-group-item" href="{% url 'listTickets' userStory.nombre%}">{{userStory.nombre}}</a>
-                
-                {%endfor%}
-            </ul>
-            
-        </div>
-        <div class="col py-5">
-            <form action="" method="post" class="card card-body">
-                {%csrf_token%}
-                <h3>Crear una historia de usuario</h3>
-            
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="nombre de historia de usuario" aria-label="Recipient's username" aria-describedby="button-addon2" name="nombre">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Agregar User Story</button>
-                </div>
-                
-            </form>
-        </div>
+        <a class="list-group-item" href="{% url 'listTickets' userStory.id%}"
+          >{{userStory.nombre}}</a
+        >
+
+        {%endfor%}
+      </ul>
     </div>
-</main>
+    <div class="col py-5">
+      <form
+        action="{% url 'projectid' project %}"
+        method="post"
+        class="card card-body"
+      >
+        {%csrf_token%}
+        <h3>Crear una historia de usuario</h3>
 
-        
-   
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="nombre de historia de usuario"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+            name="nombre"
+          />
+          <button class="btn btn-outline-secondary">Agregar User Story</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
 
 {% endblock %}
