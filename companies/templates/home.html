@@ -1,15 +1,38 @@
 {% extends 'base.html' %} {% block content %}
 
 <main class="container py-5">
+  <section class="card card-body">
+    <h1 class="display-4 text-center">Home Project Manager</h1>
+
+    {% if user.is_authenticated %}
+    <h1>{{company}}</h1>
     <section class="card card-body">
-        <H1 class="display-1 text-center">Home Project Manager</H1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio nisi nihil quaerat, aperiam quia esse eos accusantium veritatis neque dolores sapiente suscipit quo libero recusandae quisquam doloribus mollitia dolorem id officia dolore ea aliquid aut numquam? Nesciunt nihil nam amet vero nostrum animi? Ullam, cupiditate! Facere accusantium iste dicta ullam. Voluptatem mollitia, eligendi hic odio porro velit reprehenderit rerum adipisci nihil minima optio id amet laborum officia aperiam architecto maxime saepe eaque veniam nobis, ex quam sunt. Dolores molestiae porro accusamus sunt laboriosam at incidunt exercitationem natus vel, labore necessitatibus molestias ab. Enim consectetur delectus aliquam optio repellendus, ad soluta.</p>
-        
-        <div class="text-center">
-            <a class="btn btn-secondary" href="/signin">Sign In</a>
-            <a class="btn btn-dark" href="/signup">Sign Up</a>
-        </div>
+      <p>Nit: {{company.nit}}</p>
+      <p>Telefono: {{company.telefono}}</p>
+      <p>Direccion: {{company.direccion}}</p>
+      <p>Email: {{company.email}}</p>
     </section>
+    {% else %}
+    <div class="text-center pt-5">
+      <h5>
+        Programa para la administracion de proyectos de desarrollo, con
+        historias de usuario y tickets
+      </h5>
+      <h6>by Anderson Gonzalez</h6>
+      <a
+        class="btn btn-success mt-5"
+        href="https://github.com/LTrashy/Django-project-manager"
+        target="_blank"
+        >Repositorio en github</a
+      >
+      <br />
+      <div class="mt-5">
+        <a class="btn btn-secondary" href="/signin">Sign In</a>
+        <a class="btn btn-dark" href="/signup">Sign Up</a>
+      </div>
+    </div>
+    {% endif %}
+  </section>
 </main>
 
 {% endblock %}
